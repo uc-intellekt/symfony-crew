@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Post
@@ -31,6 +32,7 @@ class Post
     /**
      * @var string
      *
+     * @Gedmo\Slug(fields={"heading"})
      * @ORM\Column(name="slug", type="string", length=255, unique=true)
      */
     private $slug;
