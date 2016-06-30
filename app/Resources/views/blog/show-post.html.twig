@@ -2,5 +2,6 @@
 
 {% block content %}
     <h1>{{ post.heading }}</h1>
+    <div>Created at: {{ post.createdAt|date }}</div>
     <div>{{ post.content }}</div>
 {% endblock %}

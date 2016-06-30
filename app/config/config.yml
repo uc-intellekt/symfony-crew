@@ -36,6 +36,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    date:
+        format: 'M j, Y H:i'
 
 # Doctrine Configuration
 doctrine:
