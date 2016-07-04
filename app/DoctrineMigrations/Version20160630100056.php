@@ -33,6 +33,6 @@ class Version20160630100056 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-//        $this->addSql('ALTER TABLE blog_post DROP created_at, DROP updated_at');
+        $this->addSql('ALTER TABLE blog_post DROP created_at, DROP updated_at');
     }
 }
