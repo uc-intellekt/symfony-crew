@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -50,6 +51,18 @@ class Post
      * @ORM\Column(name="content", type="text")
      */
     private $content;
+
+    /**
+     * @var Tag[]|ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag", inversedBy="posts")
+     */
+    private $tags;
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -132,5 +145,12 @@ class Post
     {
         return $this->content;
     }
-}
 
+    /**
+     * @return Tag[]|ArrayCollection
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+}
