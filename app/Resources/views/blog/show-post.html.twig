@@ -4,4 +4,12 @@
     <h1>{{ post.heading }}</h1>
     <div>Created at: {{ post.createdAt|date }}</div>
     <div>{{ post.content }}</div>
+    <ul class="list-inline">
+        {% for tag in post.tags %}
+            <li>
+                <span class="label label-default">{{ tag.name }}</span>
+                <span class="badge">{{ tag.posts|length }}</span>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
