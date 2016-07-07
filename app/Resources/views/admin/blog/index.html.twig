@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Blog Post List</h1>
+
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Heading</th>
+            <th>Slug</th>
+            <th>Created at</th>
+            <th>Updated at</th>
+        </tr>
+        {% for post in posts %}
+            <tr>
+                <td>{{ post.id }}</td>
+                <td>
+                    <a href="{{ path('admin_blog_post_edit', { id: post.id }) }}">
+                        {{ post.heading }}
+                    </a>
+                </td>
+                <td>{{ post.slug }}</td>
+                <td>{{ post.createdAt|date }}</td>
+                <td>{{ post.updatedAt|date }}</td>
+            </tr>
+        {% else %}
+            No posts :(
+        {% endfor %}
+    </table>
+{% endblock %}

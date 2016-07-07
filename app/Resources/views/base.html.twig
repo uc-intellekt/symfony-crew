@@ -24,6 +24,13 @@
                                 <a href="{{ path('show_blog') }}">Blog</a>
                             </li>
                         </ul>
+                        {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                            <ul class="nav navbar-nav pull-right">
+                                <li>
+                                    <a href="{{ path('admin_blog') }}">Admin</a>
+                                </li>
+                            </ul>
+                        {% endif %}
                     </nav>
                 </div>
             </div>
