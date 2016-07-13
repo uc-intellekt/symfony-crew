@@ -1,0 +1,1 @@
+short.post.content.message: Hey man, your message is too short! Type more than {{ limit }} chars!

@@ -4,6 +4,7 @@ namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\Post;
 use AppBundle\Form\BlogPostType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,6 +42,7 @@ class BlogController extends Controller
 
     /**
      * @Route("/blog/post/{id}/update", name="admin_blog_post_update")
+     * @Method("POST")
      */
     public function updateBlogPostAction(Request $request, $id)
     {

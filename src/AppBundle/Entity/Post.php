@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Post
@@ -41,6 +42,7 @@ class Post
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="heading", type="string", length=255)
      */
     private $heading;
@@ -48,6 +50,8 @@ class Post
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     * @Assert\Length(min=10, minMessage="short.post.content.message")
      * @ORM\Column(name="content", type="text")
      */
     private $content;
