@@ -14,13 +14,13 @@ use Symfony\Component\HttpFoundation\Request;
 class BlogController extends Controller
 {
     /**
-     * @Route("/blog/post", name="admin_blog")
+     * @Route("/blog/post", name="admin_blog_show")
      */
-    public function indexAction()
+    public function showAction()
     {
         $posts = $this->getPostRepository()->findAll();
 
-        return $this->render('admin/blog/index.html.twig', [
+        return $this->render('admin/blog/show.html.twig', [
             'posts' => $posts,
         ]);
     }
@@ -51,7 +51,7 @@ class BlogController extends Controller
         if ($form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_blog');
+            return $this->redirectToRoute('admin_blog_show');
         }
 
         return $this->render('admin/blog/edit-post.html.twig', [
