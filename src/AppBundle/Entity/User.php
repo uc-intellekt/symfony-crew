@@ -28,6 +28,18 @@ class User implements UserInterface
     private $username;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     */
+    private $password;
+
+    /**
+     * @var string
+     */
+    private $plainPassword;
+
+    /**
      * @return int
      */
     public function getId()
@@ -53,9 +65,36 @@ class User implements UserInterface
         return ['ROLE_USER'];
     }
 
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
     public function getPassword()
     {
-        // TODO: Implement getPassword() method.
+        return $this->password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param string $plainPassword
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
     }
 
     public function getSalt()

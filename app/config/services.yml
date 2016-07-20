@@ -10,4 +10,10 @@ services:
 
     app.form_login_authenticator:
         class: AppBundle\Security\FormLoginAuthenticator
-        arguments: ['@doctrine.orm.entity_manager']
+        arguments: ['@doctrine.orm.entity_manager', '@security.password_encoder', '@router']
+
+    app.user_password_listener:
+        class: AppBundle\Doctrine\UserPasswordListener
+        arguments: ['@security.password_encoder']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }

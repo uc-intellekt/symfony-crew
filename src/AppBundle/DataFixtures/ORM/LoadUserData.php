@@ -12,6 +12,7 @@ class LoadUserData implements FixtureInterface
     {
         $user = new User();
         $user->setUsername('victor');
+        $user->setPlainPassword('victorpass');
 
         $manager->persist($user);
         $manager->flush();

@@ -13,6 +13,10 @@ class SecurityController extends Controller
      */
     public function loginAction()
     {
+        if ($this->getUser()) {
+            $this->addFlash('warning', 'You\'re already logged  in.');
+        }
+
         $form = $this->createForm(UserLoginType::class, null, [
             'action' => $this->generateUrl('security_check'),
         ]);

@@ -53,6 +53,8 @@ class BlogController extends Controller
         if ($form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'Blog post successfully saved!');
+
             return $this->redirectToRoute('admin_blog_show');
         }
 
